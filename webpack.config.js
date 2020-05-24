@@ -43,9 +43,9 @@ module.exports = {
             }
         }),
     ],
-    optimization: {
-        splitChunks: {
-            chunks: "all",
-        }
-    }
+    // optimization: {
+    //     splitChunks: {
+    //         chunks: "all",
+    //     }
+    // }
 }
