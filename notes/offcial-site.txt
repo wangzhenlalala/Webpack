@@ -5,3 +5,5 @@ There are three general approaches to code splitting available:
 
 SplitChunksPlugin:
     The SplitChunksPlugin allows us to extract common dependencies into an existing entry chunk or an entirely new chunk.
+    * 如果不配置，只会把vendor第三方模块，给split出来，
+    * 自己的文件模块并没有被split出来
