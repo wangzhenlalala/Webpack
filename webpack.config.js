@@ -46,9 +46,17 @@ module.exports = {
         }),
     ],
     optimization: {
-        runtimeChunk: 'single',
+        runtimeChunk: "single",
+        moduleIds: 'hashed',
+        chunkIds: 'named',
         splitChunks: {
-            chunks: "all",
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all' // all 代表着什么？？
+                }
+            } 
         }
     }
 }
