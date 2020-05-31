@@ -6,3 +6,8 @@
     color: blue;
     font-weight: bold;
 }
+.btn {
+    outline: 0;
+    border: 2px solid blue;
+    border-radius: 4px;
+}
