@@ -11,7 +11,12 @@ function component(textContent) {
         .text('print')
         .off('click')
         .on('click', (e) => {
-            common_1();
+            e.target.textContent = "loading...";
+            import(/** webpackChunkName common-1*/ './common-1.js').then( module => {
+                setTimeout(() => {
+                    e.target.textContent = "loaded";
+                }, 1500);
+            })
         });
     
     $div.append($btn);
@@ -23,13 +28,15 @@ function getComponent(text) {
     return import(/* webpackChunkName: "dynamic-load-jquery" */ 'jquery').then( ({default: $}) => {
         // 动态的加载来jquery之后，全局上并没有JQuery,$的实例； 仅仅在这里，我们能够引用jquery模块
         console.log($);
-        // return component(text);
+        return component(text);
     })
 }
 
 window.addEventListener('load', (e) => {
-    getComponent().then( com => {
-        // $('body').append(com);
-        console.log($); // 这里并不能引用jquery, // ReferenceError: $ is not defined
-    })
+    // getComponent().then( com => {
+    //     $('body').append(com);
+    //     // console.log($); // 这里并不能引用jquery, // ReferenceError: $ is not defined
+    // });
+    document.body.appendChild( component("hello").get(0));
+
 });

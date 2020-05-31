@@ -1,3 +1,4 @@
 export default function common_1() {
     console.log('i am common 1 !');
 }
+export const Name = "Common-1";
