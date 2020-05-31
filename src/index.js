@@ -1,4 +1,5 @@
 import "./style.css";
+import $ from 'jquery';
 
 function renderBtn1() {
     const btnElement = document.createElement('button');
@@ -32,6 +33,7 @@ function renderBtn2() {
     document.body.appendChild(btnElement)
 }
 window.addEventListener('load', (e) => {
+    $('div').text("xxx");
     renderBtn1();
     renderBtn2();
 });

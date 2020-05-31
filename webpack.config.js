@@ -13,6 +13,7 @@ module.exports = {
     },
     output: {
         filename: "[name].[contenthash].js",
+        // filename: "[name].js",
         path: path.resolve(__dirname, 'dist'),
     },
     module: {
@@ -44,9 +45,10 @@ module.exports = {
             }
         }),
     ],
-    // optimization: {
-    //     splitChunks: {
-    //         chunks: "all",
-    //     }
-    // }
+    optimization: {
+        runtimeChunk: 'single',
+        splitChunks: {
+            chunks: "all",
+        }
+    }
 }

@@ -14,3 +14,17 @@ Dynamic loading:
     * webpack 会为动态加载的module自动命名，2.bundle.js, 3.bundle.js,
     * 这些动态的 bundle可以合并在一起吗？？？
     * webpack在程序加载新的模块的时候，是通过在head中出入 script 来实现的。
+
+Cache:
+    * [contenthash] 加在output.filename中
+    *** As you can see the bundle's name now reflects its content (via the hash). 
+        If we run another build without making any changes, we'd expect that filename to stay the same. 
+        However, if we were to run it again, we may find that this is not the case.
+    --- This is because webpack includes certain boilerplate, 
+        specifically the runtime and manifest, in the entry chunk.
+    *** 但是当
+        index依赖 [common-1, common-2]的时候，
+        如果仅仅是common-1的内容改变了，index对应的bundle也被重新生成了， cache就被破坏了
+        如何避免呢？？
+
+    extract boilerplate
