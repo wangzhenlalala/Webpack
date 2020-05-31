@@ -11,3 +11,6 @@ SplitChunksPlugin:
 
 Dynamic loading:
     Note the use of chunkFilename (output), which determines the name of non-entry chunk files.
+    * webpack 会为动态加载的module自动命名，2.bundle.js, 3.bundle.js,
+    * 这些动态的 bundle可以合并在一起吗？？？
+    * webpack在程序加载新的模块的时候，是通过在head中出入 script 来实现的。

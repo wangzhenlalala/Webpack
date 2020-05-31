@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
+    mode: process.env.NODE_ENV,
     entry: {
         app: './src/index.js',
         print: './src/print.js'
