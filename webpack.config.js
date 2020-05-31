@@ -12,7 +12,7 @@ module.exports = {
         print: './src/print.js'
     },
     output: {
-        filename: "[name].bundle.js",
+        filename: "[name].[contenthash].js",
         path: path.resolve(__dirname, 'dist'),
     },
     module: {
@@ -29,7 +29,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'Outpue Management',
+            title: 'Cache',
         }),
         new ManifestPlugin({
             generate(seed, files, entryPoints) {
